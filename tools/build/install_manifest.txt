@@ -1,0 +1,6 @@
+/usr/local/lib/lib24c16.so
+/usr/local/include/lib24c16.h
+/usr/local/include/i2cbusses.h
+/usr/local/include/i2c-dev.h
+/usr/local/include/util.h
+/usr/local/include/version.h

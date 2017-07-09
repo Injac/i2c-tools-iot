@@ -1,0 +1,7 @@
+/home/pi/source/i2c-tools/tools/build/CMakeFiles/edit_cache.dir
+/home/pi/source/i2c-tools/tools/build/CMakeFiles/install/strip.dir
+/home/pi/source/i2c-tools/tools/build/CMakeFiles/rebuild_cache.dir
+/home/pi/source/i2c-tools/tools/build/CMakeFiles/list_install_components.dir
+/home/pi/source/i2c-tools/tools/build/CMakeFiles/install/local.dir
+/home/pi/source/i2c-tools/tools/build/CMakeFiles/install.dir
+/home/pi/source/i2c-tools/tools/build/CMakeFiles/24c16.dir

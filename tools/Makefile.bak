@@ -1,0 +1,106 @@
+# source files.
+SRC =  	lib24c16.c 
+OBJ = $(SRC:.cpp=.o)
+ 
+OUT = ../lib24c16.a
+ 
+# include directories
+INCLUDES = -I. -I../include/ -I/usr/local/include -I/usr/include -I/usr/include/arm-linux-gnueabihf
+ 
+# C++ compiler flags (-g -O2 -Wall)
+CCFLAGS = -Wstrict-prototypes -Wshadow -Wpointer-arith -Wcast-qual \
+		   -Wcast-align -Wwrite-strings -Wnested-externs -Winline \
+		   -W -Wundef -Wmissing-prototypes -Iinclude -g
+ 
+# compiler
+CCC = g++
+ 
+# library paths
+LIBS = -L../ -L/usr/local/lib -lm
+ 
+# compile flags
+LDFLAGS = -g
+ 
+.SUFFIXES: .cpp
+ 
+default: dep $(OUT)
+ 
+.cpp.o:
+	$(CCC) $(INCLUDES) $(CCFLAGS) -c $< -o $@
+ 
+$(OUT): $(OBJ)
+	ar rcs $(OUT) $(OBJ)
+ 
+depend: dep
+ 
+dep:
+	makedepend -- $(CFLAGS) -- $(INCLUDES) $(SRC)
+ 
+clean:
+	rm -f $(OBJ) $(OUT) Makefile.bak# DO NOT DELETE
+
+lib24c16.o: /usr/include/errno.h /usr/include/features.h
+lib24c16.o: /usr/include/stdc-predef.h /usr/include/string.h
+lib24c16.o: /usr/include/xlocale.h /usr/include/stdio.h /usr/include/libio.h
+lib24c16.o: /usr/include/_G_config.h /usr/include/wchar.h
+lib24c16.o: /usr/include/stdlib.h /usr/include/alloca.h /usr/include/unistd.h
+lib24c16.o: /usr/include/getopt.h ../include/linux/i2c-dev.h
+lib24c16.o: /usr/include/linux/types.h /usr/include/linux/posix_types.h
+lib24c16.o: /usr/include/linux/stddef.h i2cbusses.h util.h ../version.h
+# DO NOT DELETE
+
+lib24c16.o: /usr/include/errno.h /usr/include/features.h
+lib24c16.o: /usr/include/stdc-predef.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/sys/cdefs.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/wordsize.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/gnu/stubs.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/errno.h
+lib24c16.o: /usr/include/linux/errno.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/asm/errno.h
+lib24c16.o: /usr/include/asm-generic/errno.h
+lib24c16.o: /usr/include/asm-generic/errno-base.h /usr/include/string.h
+lib24c16.o: /usr/include/xlocale.h /usr/include/stdio.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/types.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/typesizes.h
+lib24c16.o: /usr/include/libio.h /usr/include/_G_config.h
+lib24c16.o: /usr/include/wchar.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/stdio_lim.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/sys_errlist.h
+lib24c16.o: /usr/include/stdlib.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/waitflags.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/waitstatus.h
+lib24c16.o: /usr/include/endian.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/endian.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/byteswap.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/byteswap-16.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/sys/types.h /usr/include/time.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/sys/select.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/select.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/sigset.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/time.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/sys/sysmacros.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h
+lib24c16.o: /usr/include/alloca.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/stdlib-float.h
+lib24c16.o: /usr/include/unistd.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/posix_opt.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/environments.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/confname.h
+lib24c16.o: /usr/include/getopt.h ../include/linux/i2c-dev.h
+lib24c16.o: /usr/include/linux/types.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/asm/types.h
+lib24c16.o: /usr/include/asm-generic/int-ll64.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/asm/bitsperlong.h
+lib24c16.o: /usr/include/asm-generic/bitsperlong.h
+lib24c16.o: /usr/include/linux/posix_types.h /usr/include/linux/stddef.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/asm/posix_types.h
+lib24c16.o: /usr/include/asm-generic/posix_types.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/sys/ioctl.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/ioctls.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/asm/ioctls.h
+lib24c16.o: /usr/include/asm-generic/ioctls.h /usr/include/linux/ioctl.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/asm/ioctl.h
+lib24c16.o: /usr/include/asm-generic/ioctl.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/bits/ioctl-types.h
+lib24c16.o: /usr/include/arm-linux-gnueabihf/sys/ttydefaults.h i2cbusses.h
+lib24c16.o: util.h ../version.h

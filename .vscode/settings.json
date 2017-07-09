@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "i2c-dev.h": "c",
+        "lib24c16.h": "c",
+        "i2cbusses.h": "c"
+    }
+}
