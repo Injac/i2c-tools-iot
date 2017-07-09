@@ -57,6 +57,116 @@ do:
   $ make EXTRA="py-smbus"
 
 
+INSTALLATION OF LIB24C16
+------------------------
+
+To Compile and use the library, simply cd into the folder *tools* and do the following:
+
+mkdir build
+cmake ..
+make
+sudo make install
+sudo ldconfig
+
+This will install the library in /usr/local/lib. Add this path to your ldconfig configuration (edit /etc/ld.so.conf)
+
+Here is a sample on how to use the library:
+
+
+```C
+
+#include <limits.h>
+#include <dirent.h>
+#include <fcntl.h>
+
+#include <stdio.h>
+#include <unistd.h>
+
+
+#include <errno.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <linux/types.h>
+#include <sys/ioctl.h>
+#include <unistd.h>
+
+#include "util.h"
+
+#include "lib24c16.h"
+
+
+int main()
+{
+    	char bus = '1';
+    	char address = 0x00;
+	char address_write_bytes = 0x00;
+    	int valuemy = 0;    
+
+	int values_written[10] = {0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x29,0x30,0x31};
+
+    	int* values_read;
+    
+
+
+    	write_byte(&bus,0x50,&address,0x21);
+   
+    	usleep(3000);
+
+    	valuemy = read_byte(&bus,0x50,&address);
+
+    	usleep(3000);
+
+	printf("0x%x\n",  valuemy); 
+    
+    	printf("%d \n",valuemy);
+
+
+	printf("Writing byte array, this will take some time\n");
+
+	int written = write_byte_array(&bus,0x50,&address_write_bytes,values_written,10);
+	
+
+	if(written > 0)
+	{
+		printf("Bytes successfully written!\n");
+	}
+ 	else
+	{
+		printf("No bytes written\n");
+	}
+
+
+	usleep(3000);
+
+	values_read = read_bytes(&bus,0x50,&address,10);
+
+	usleep(5000);
+
+	if(values_read != NULL)
+	{
+		printf("bytes have been read!\n");		
+	}
+
+	int read_counter = 0;
+
+	for(read_counter = 0;read_counter < 10;read_counter++)
+	{
+			printf("Counter:%d  0x%x\n",read_counter,  *(values_read+read_counter)); 
+	}
+		
+
+	free(values_read);	
+    	
+	return 0;
+}
+```
+Then compile with:
+
+```bash
+gcc -g   -L/usr/local/lib -I/usr/local/include main.c -l24c16  -o test
+```
+
 DOCUMENTATION
 -------------
 
