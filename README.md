@@ -62,11 +62,11 @@ INSTALLATION OF LIB24C16
 
 To Compile and use the library, simply cd into the folder *tools* and do the following:
 
-mkdir build
-cmake ..
-make
-sudo make install
-sudo ldconfig
+*mkdir build
+*cmake ..
+*make
+*sudo make install
+*sudo ldconfig
 
 This will install the library in /usr/local/lib. Add this path to your ldconfig configuration (edit /etc/ld.so.conf)
 
@@ -166,6 +166,8 @@ Then compile with:
 ```bash
 gcc -g   -L/usr/local/lib -I/usr/local/include main.c -l24c16  -o test
 ```
+
+As you can see, it is now possible to read a bunch of bytes or to write a bunch of bytes add a specific address within a specific block of the EEPROM. Please not that the code is still experimental and good enough for my project.
 
 DOCUMENTATION
 -------------
