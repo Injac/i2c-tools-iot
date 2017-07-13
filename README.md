@@ -61,14 +61,14 @@ INSTALLATION OF LIB24C16
 ------------------------
 
 To Compile and use the library, simply cd into the folder *tools* and do the following:
+You will have to have a working cmake installed on your machine.
 
 * mkdir build
 * cmake ..
 * make
 * sudo make install
+* Add /usr/local/lib to your /etc/ld.so.conf file
 * sudo ldconfig
-
-This will install the library in /usr/local/lib. Add this path to your ldconfig configuration (edit /etc/ld.so.conf)
 
 Here is a sample on how to use the library:
 
